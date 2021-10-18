@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded',() => {
 
     consultarCriptommonedas();
 
-    formulario.addEventListener('submit', SubmitFormulario);
-
     criptomonedaSelect.addEventListener('change',leerValor);
     monedaSelect.addEventListener('change',leerValor);
+
+    formulario.addEventListener('submit', SubmitFormulario);
 })
 
 //BUsca las top 10 criptomonedas dentro de la API
@@ -66,7 +66,6 @@ const SubmitFormulario = (e) =>{
         ui.imprimirAlerta('Todos los campos son obligatorios',true);
         return;
     } 
-
     consultarApi();
 }
 
@@ -82,5 +81,7 @@ const consultarApi = () => {
     .then(respuesta => respuesta.json())
     .then(cotizacion =>{
         ui.mostrarCotizacionHTML(cotizacion.DISPLAY[criptomoneda][moneda])
+        objBusqueda.moneda = '';
+        objBusqueda.criptomoneda = '';
     })
 }

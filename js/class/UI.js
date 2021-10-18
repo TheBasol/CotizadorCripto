@@ -54,6 +54,7 @@ class UI {
         setTimeout( () => {
             var alertaMensaje = document.querySelector('#mensaje')
 
+            this.limpiarHTML();
     
             alertaMensaje.remove();
         }, 5000);
